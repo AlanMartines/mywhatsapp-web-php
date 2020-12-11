@@ -1,3 +1,9 @@
+<?php
+require_once('../config.php');
+require_once(HEADER_TEMPLATE);
+//
+?>
+
 <center>
 	<div class="card border-secondary text-center mb-3" style="max-width: 32rem;">
 		<div class="card-header text-white bg-secondary font-weight-bold text-center">My Whats</div>
@@ -20,8 +26,7 @@
 			</div>
 		</div>
 		<div class="card-footer text-muted text-center">
-			<form class="text-center" id="venombot-form" method="post" enctype="multipart/form-data"
-				action="javascript:void(0)">
+			<form class="text-center" id="venombot-form" method="post" enctype="multipart/form-data" action="javascript:void(0)">
 				<button id="starVenon" type="button" class="btn btn-sm btn-success">Iniciar</button>
 				<button id="restarVenon" type="button" class="btn btn-sm btn-warning">Reiniciar</button>
 				<button id="closeVenon" type="button" class="btn btn-sm btn-danger">Sair</button>
@@ -44,8 +49,7 @@
 									<i class="fas fa-user-secret"></i>
 								</div>
 							</div>
-							<input type="text" class="rounded form-control text-center" name="SessionName"
-								id="SessionName" value="BotClient" readonly="true" />
+							<input type="text" class="rounded form-control text-center" name="SessionName" id="SessionName" value="BotClient" readonly="true" />
 						</div>
 					</div>
 				</div>
@@ -57,10 +61,8 @@
 							</div>
 						</div>
 						<div class="custom-file">
-							<input type="file" accept=".txt, .csv" class="rounded form-control custom-file-input"
-								name="sendImageMassaContato" id="sendImageMassaContato" />
-							<label class="custom-file-label" for="sendImageMassaContato"
-								id="sendImageMassaContato-label">Selecione o arquivo de contatos...</label>
+							<input type="file" accept=".txt, .csv" class="rounded form-control custom-file-input" name="sendImageMassaContato" id="sendImageMassaContato" />
+							<label class="custom-file-label" for="sendImageMassaContato" id="sendImageMassaContato-label">Selecione o arquivo de contatos...</label>
 						</div>
 						<br>
 						<input type="hidden" name="fileNamesendImageMassaContato" id="fileNamesendImageMassaContato" />
@@ -81,8 +83,7 @@
 							</div>
 						</div>
 						<div class="custom-file">
-							<input type="file" accept="image/*" class="rounded form-control custom-file-input"
-								name="FileImageMassa" id="FileImageMassa" />
+							<input type="file" accept="image/*" class="rounded form-control custom-file-input" name="FileImageMassa" id="FileImageMassa" />
 							<label class="custom-file-label" for="FileImageMassa" id="FileImageMassa-label">Selecione o
 								arquivo...</label>
 						</div>
@@ -104,24 +105,21 @@
 								<i class="fas fa-comment-alt"></i>
 							</div>
 						</div>
-						<textarea class="rounded form-control" name="msgimgmass" id="msgimgmass" rows="3"
-							placeholder="Menssagem"></textarea>
+						<textarea class="rounded form-control" name="msgimgmass" id="msgimgmass" rows="3" placeholder="Menssagem"></textarea>
 					</div>
 					<span class="help-block r" id="error"></span>
 				</div>
 
 			</div>
 			<div class="card-footer text-muted text-center">
-				<button type="submit" name="sendFileImgMassa" id="sendFileImgMassa" class="btn btn-sm btn-primary"><i
-						class="fas fa-paper-plane"></i> Enviar</button>
+				<button type="submit" name="sendFileImgMassa" id="sendFileImgMassa" class="btn btn-sm btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
 			</div>
 	</div>
 	</form>
 </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="sendImageMassaModalCentralizado" tabindex="-1" role="dialog"
-	aria-labelledby="TituloModalCentralizado" data-keyboard="false" data-backdrop="static" aria-hidden="true">
+<div class="modal fade" id="sendImageMassaModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" data-keyboard="false" data-backdrop="static" aria-hidden="true">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">
 			<div class="modal-header bg-success">
@@ -159,3 +157,7 @@
 		</div>
 	</div>
 </div>
+
+<?php
+include_once(FOOTER_TEMPLATE);
+?>

@@ -1,3 +1,9 @@
+<?php
+require_once('../config.php');
+require_once(HEADER_TEMPLATE);
+//
+?>
+
 <center>
 	<div class="card border-secondary text-center mb-3" style="max-width: 32rem;">
 		<div class="card-header text-white bg-secondary font-weight-bold text-center">My Whats</div>
@@ -20,8 +26,7 @@
 			</div>
 		</div>
 		<div class="card-footer text-muted text-center">
-			<form class="text-center" id="venombot-form" method="post" enctype="multipart/form-data"
-				action="javascript:void(0)">
+			<form class="text-center" id="venombot-form" method="post" enctype="multipart/form-data" action="javascript:void(0)">
 				<button id="starVenon" type="button" class="btn btn-sm btn-success">Iniciar</button>
 				<button id="restarVenon" type="button" class="btn btn-sm btn-warning">Reiniciar</button>
 				<button id="closeVenon" type="button" class="btn btn-sm btn-danger">Sair</button>
@@ -32,8 +37,7 @@
 </center>
 <div class="row d-flex justify-content-center">
 	<div class="col-sm-10">
-		<form class="text-center" id="sendText-form" method="post" enctype="multipart/form-data"
-			action="javascript:void(0)">
+		<form class="text-center" id="sendText-form" method="post" enctype="multipart/form-data" action="javascript:void(0)">
 			<div class="card border-secondary mb-3">
 				<div class="card-header text-white bg-secondary font-weight-bold text-center">Enviar Texto</div>
 				<div class="card-body text-secondary text-center align-items-center">
@@ -45,8 +49,7 @@
 										<i class="fas fa-user-secret"></i>
 									</div>
 								</div>
-								<input type="text" class="rounded form-control text-center" name="SessionName"
-									id="SessionName" value="BotClient" readonly="true" />
+								<input type="text" class="rounded form-control text-center" name="SessionName" id="SessionName" value="BotClient" readonly="true" />
 							</div>
 						</div>
 					</div>
@@ -75,19 +78,21 @@
 									<i class="fas fa-comment-alt"></i>
 								</div>
 							</div>
-							<textarea class="rounded form-control" name="msg" id="msg" rows="5"
-								placeholder="Menssagem"></textarea>
+							<textarea class="rounded form-control" name="msg" id="msg" rows="5" placeholder="Menssagem"></textarea>
 						</div>
 						<span class="help-block r" id="error"></span>
 					</div>
 
 				</div>
 				<div class="card-footer text-muted text-center">
-					<button type="submit" name="sendTexto" id="sendTexto" value="sendTextoSubmit"
-						class="btn btn-sm btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
+					<button type="submit" name="sendTexto" id="sendTexto" value="sendTextoSubmit" class="btn btn-sm btn-primary"><i class="fas fa-paper-plane"></i> Enviar</button>
 				</div>
 			</div>
 		</form>
 	</div>
 
 </div>
+
+<?php
+include_once(FOOTER_TEMPLATE);
+?>

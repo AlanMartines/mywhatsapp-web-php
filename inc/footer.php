@@ -4,7 +4,7 @@
 
     <div class="footer-left">
         <center>
-            <img class="img-fluid" src="/images/eletro_info_matriz_circulo_130x130.png" width="130px" height="130px">
+            <img class="img-fluid" src="../images/eletro_info_matriz_circulo_130x130.png" width="130px" height="130px">
             </p>
             <p class="footer-company-name">Copyright &copy; 2020-<span id="currentYear"></span> Eletroinfo -
                 Desenvolvido por <b>Alan Martines</b></p>
@@ -79,9 +79,6 @@
 <script type="text/javascript" src="../packages/jquery/jquery.mask.min.js"></script>
 <script type="text/javascript" src="../packages/passtrength/js/jquery.passtrength.min.js"></script>
 <!--- --------------------------------------------------------------------------------------------------------------------------- --->
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-<!--- --------------------------------------------------------------------------------------------------------------------------- --->
 <script type="text/javascript" src="../packages/page/js/sistem.js"></script>
 <script type='text/javascript' src="../packages/page/js/org_tabela.js"></script>
 <script type="text/javascript" src="../packages/page/js/mascaras.js"></script>
@@ -89,8 +86,6 @@
 <script type="text/javascript" src="../packages/page/js/cliVenom.js"></script>
 <script type="text/javascript" src="../packages/page/js/usuarios.js"></script>
 <script type="text/javascript" src="../packages/page/js/forca_senha.js"></script>
-<!--- --------------------------------------------------------------------------------------------------------------------------- --->
-<script type="text/javascript" src="../packages/page/js/politica-de-cookies.js"></script>
 </body>
 
 </html>
