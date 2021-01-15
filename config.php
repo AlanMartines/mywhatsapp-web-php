@@ -1,6 +1,9 @@
 <?php
 //
-//https://pt.stackoverflow.com/questions/3571/qual-a-melhor-maneira-de-criar-um-sistema-de-login-com-php
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
+error_reporting(E_ALL);
 //
 // Time zone
 setlocale(LC_TIME, 'pt_BR.utf8');
@@ -8,7 +11,7 @@ date_default_timezone_set('America/Sao_Paulo');
 //
 //RECAPTCHA_V3_SECRET_KEY
 if (!defined('RECAPTCHA_V3_SECRET_KEY'))
-	define('RECAPTCHA_V3_SECRET_KEY', '6LceYwEaAAAAAHc_7sKnBAQXddFMXk-s5HVVu-hg');
+	define('RECAPTCHA_V3_SECRET_KEY', '6LdEGfcZAAAAAF7kYKq1F7Ecy-qJz4rFIuMhxLYl');
 //
 /** pasta absoluta do sistema **/
 if (!defined('ABSPAST'))
@@ -20,7 +23,7 @@ if (!defined('ABSPATH'))
 //
 /** caminho no server para o sistema **/
 if (!defined('BASEURL'))
-	define('BASEURL', '/dpvat/');
+	define('BASEURL', '/mywhats/');
 //
 /** caminho do arquivo de banco de dados **/
 if (!defined('DBAPI'))

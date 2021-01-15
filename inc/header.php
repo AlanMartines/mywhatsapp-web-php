@@ -1,13 +1,20 @@
+<?php
+//
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+//
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-  <title>EletroInfo - My Whats</title>
+  <title>EletroInfo - My whats</title>
   <meta property='og:title' content='Alan Martines' />
   <meta charset="utf-8" />
   <meta name='content-language' content='pt-br' />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <link rel="icon" href="../images/whatsapp-bot.png" />
+  <link rel="icon" href="../public/imagens/whatsapp-bot.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!--- --------------------------------------------------------------------------------------------------------------------------- --->
   <meta name="description" content="Alan Martines" />
@@ -16,16 +23,11 @@
   <meta name="robots" content="noindex, nofollow" />
   <!--- --------------------------------------------------------------------------------------------------------------------------- --->
   <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="../packages/page/css/style.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/fontawesome-free/css/all.min.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/passtrength/css/passtrength.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/datatables/css/dataTables.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/datatables/css/responsive.bootstrap4.min.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/lobibox/css/lobibox.min.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/intl-tel-input/css/intlTelInput.min.css" />
-  <link rel="stylesheet" type="text/css" href="../packages/trumbowyg/ui/trumbowyg.min.css" />
+  <link rel="stylesheet" type="text/css" href="../public/page/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="../public/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../public/fontawesome-free/css/all.min.css" />
   <!--- --------------------------------------------------------------------------------------------------------------------------- --->
+  <!--- JS --->
 </head>
 
 <body>
@@ -87,3 +89,4 @@
   </nav>
 
   <div class="container">
+    <div class="content">
