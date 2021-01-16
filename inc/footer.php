@@ -54,8 +54,15 @@
 	<!-- Inclusão do Plugin jQuery Validation-->
 	<script type="text/javascript" src="../public/jquery/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="../public/jquery/additional-methods.min.js"></script>
+	<script type="text/javascript" src="../public/jquery/jquery.mask.min.js"></script>
+	<!--- --------------------------------------------------------------------------------------------------------------------------- --->
+	<script type="text/javascript" src="../public/intl-tel-input/js/intlTelInput-jquery.js"></script>
+	<script type="text/javascript" src="../public/trumbowyg/trumbowyg.min.js"></script>
 	<!--- --------------------------------------------------------------------------------------------------------------------------- --->
 	<script type="text/javascript" src="../public/page/js/clivenom.js"></script>
+	<script type="text/javascript" src="../public/page/js/sistem.js"></script>
+	<script type="text/javascript" src="../public/page/js/mascaras.js"></script>
+	<script type="text/javascript" src="../public/page/js/intl-tel-input.js"></script>
 	<!--- --------------------------------------------------------------------------------------------------------------------------- --->
 	</body>
 
