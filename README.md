@@ -41,33 +41,9 @@ $ sudo apt autoremove -y
 # Clone este repositório
 $ git clone https://github.com/AlanMartines/mywhats-web-php.git
 
-# Acesse a pasta do projeto no terminal/cmd
-$ cd mywhats-web
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação 
-$ node index.js
-
-# Manter os processos ativos a cada reinicialização do servidor
-sudo npm install pm2 -g
-
-pm2 start index.js
-
-pm2 save
-
-pm2 startup
-
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ${USER} --hp /home/${USER}
-
-# O servidor iniciará na porta:8000
-
-# Pronto, escaneie o código QR-Code do Whatsapp e aproveite!
-```
 ## Uso
 #### Acesso via web (Em desenvolvimento a integração/automatização)
-http://localhost:8000/
+http://localhost/mywhats-web-php/
 
 #### Pagina inicial
 <p align="left">
@@ -84,40 +60,6 @@ http://localhost:8000/
 <p align="left">
   <img src="./public/prints/Screenshot_4.png" width="500" alt="My Whats">
 </p>
-
-## Dockerfile
-```bash
-# Ir para seu diretório home
-$ cd ~
-
-# Clone este repositório
-$ git clone https://github.com/AlanMartines/mywhats-web-php.git
-
-# Acesse a pasta do projeto no terminal/cmd
-$ cd mywhats-web
-
-# Processando o arquivo Dockerfile
-$ docker build -t alanmartines/nodejs-mywhats-web-php:1.0 .
-
-# Criar um contêiner
-$ docker container run --name mywhats-web-php -p 8000:8000 -d alanmartines/nodejs-mywhats-web-php:1.0
-```
-## Para instalar o certbot e criar o certificado SSL para domínios https
-```bash
-sudo apt update
-
-sudo apt install -y software-properties-common
-
-sudo add-apt-repository universe
-
-sudo add-apt-repository ppa:certbot/certbot
-
-sudo apt update
-
-sudo apt install -y certbot
-
-sudo certbot certonly --manual --force-renewal -d *.yourdomain.net -d yourdomain.net --agree-tos --no-bootstrap --manual-public-ip-logging-ok --preferred-challenges dns-01 --server https://acme-v02.api.letsencrypt.org/directory
-```
 
 ## Em desenvolvimento
 Este projeto se encontra em desenvolvimento, então pode conter erros.
