@@ -23,6 +23,10 @@ body {
     margin: 5px !important;
 }
 
+.intl {
+    width: 100%;
+}
+
 .footer-distributed {
     background-image: url('../../imagens/background.png');
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);

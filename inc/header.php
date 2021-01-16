@@ -26,6 +26,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <link rel="stylesheet" type="text/css" href="../public/page/css/style.css" />
   <link rel="stylesheet" type="text/css" href="../public/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="../public/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" type="text/css" href="../public/intl-tel-input/css/intlTelInput.min.css">
   <!--- --------------------------------------------------------------------------------------------------------------------------- --->
   <!--- JS --->
 </head>

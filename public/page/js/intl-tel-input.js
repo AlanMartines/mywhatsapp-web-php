@@ -2,7 +2,11 @@ $('document').ready(function () {
   //
   //---------------------------------------------------------------------------------------------------------------------------------------------------//
   //
-  $("#numero").intlTelInput({
+  // https://codepen.io/Subversivo58/pen/qpJMjy?editors=0110
+  //
+  let telInput = $("#numero")
+  //
+  telInput.intlTelInput({
     // allowDropdown: false,
     // autoHideDialCode: false,
     // autoPlaceholder: "off",
@@ -22,7 +26,7 @@ $('document').ready(function () {
     // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
     //placeholderNumberType: "MOBILE",
     preferredCountries: ['br'],
-    //separateDialCode: true,
+    separateDialCode: true,
   });
   // update the hidden input on submit
   $("#numero").on("keyup", function () {
