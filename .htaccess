@@ -18,9 +18,3 @@ DirectoryIndex index.html index.php index.htm index.cgi index.pl
 <FilesMatch ".(htm|html|css|js)$">
 AddDefaultCharset UTF-8
 </FilesMatch>
-
-#Bloqueando hotlinks em imagens
-RewriteEngine on
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?sirleilima.tk [NC]
-RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]

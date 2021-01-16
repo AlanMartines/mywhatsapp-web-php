@@ -9,30 +9,39 @@ require_once(HEADER_TEMPLATE);
 		<div class="card-header text-white bg-secondary font-weight-bold text-center">My Whats</div>
 		<div class="card-body text-secondary text-center align-items-center">
 			<div class="row d-flex justify-content-center">
-				<div class="col-md-5 text-center">
+				<div class="col-md-6 text-center">
 					<span id="qrcodeVenon"></span>
 				</div>
-				<div class="col-md-5 text-left">
-					<strong>Serviço....: </strong><span id="statusVenon"></span>
+				<div class="col-md-6 text-left">
+					<strong>Serviço.........: </strong><span id="statusVenon"></span>
 					<br>
-					<strong>Status......: </strong><span id="startVenom"></span>
+					<strong>Status...........: </strong><span id="startVenom"></span>
 					<br>
-					<strong>Contatos.: </strong>
+					<strong>Contato.......: </strong><span id="contatoVenon"></span>
 					<br>
-					<strong>Grupos....: </strong>
+					<strong>Wa Versão...: </strong><span id="waversaoVenon"></span>
 					<br>
-					<strong>Chat.........: </strong>
+					<strong>Plataforma..: </strong><span id="sistemaVenon"></span>
+					<br>
+					<strong>Bateria.........: </strong><span id="bateriaVenon"></span>
+					<br>
+					<strong>Carregador..: </strong><span id="carregadorVenon"></span>
 				</div>
 			</div>
 		</div>
 		<div class="card-footer text-muted text-center">
-			<form class="text-center" id="venombot-form" method="post" enctype="multipart/form-data" action="javascript:void(0)">
-				<button id="starVenon" type="button" class="btn btn-sm btn-success">Iniciar</button>
-				<button id="restarVenon" type="button" class="btn btn-sm btn-warning">Reiniciar</button>
-				<button id="closeVenon" type="button" class="btn btn-sm btn-danger">Sair</button>
-			</form>
+			<div class="row d-flex justify-content-center">
+				<div class="col-md-4 text-center">
+					<button id="starVenon" type="button" class="btn btn-sm btn-success">Iniciar</button>
+				</div>
+				<div class="col-md-4 text-center">
+					<button id="restarVenon" type="button" class="btn btn-sm btn-warning">Reiniciar</button>
+				</div>
+				<div class="col-md-4 text-center">
+					<button id="desconectarVenon" type="button" class="btn btn-sm btn-danger">Desconectar</button>
+				</div>
+			</div>
 		</div>
-
 	</div>
 </center>
 <div class="row d-flex justify-content-center">
