@@ -6,11 +6,6 @@ deny from all
 satisfy all
 </files>
 
-#Forçando redirecionamento de http para https (SSL)
-RewriteEngine On
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
-
 #Definindo páginas iniciais padrão
 DirectoryIndex index.html index.php index.htm index.cgi index.pl
 

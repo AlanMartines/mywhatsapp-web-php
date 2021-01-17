@@ -218,16 +218,16 @@ $(document).ready(function() {
     // Onde estou
     var ResponseURL = window.location.href;
     var domain = ResponseURL.split('/');
-    var dir_local = domain[domain.length - 3];
+    var dir_local = domain[domain.length - 2];
     console.log('Local: '+dir_local);
     //
     //---------------------------------------------------------------------------------------------------------------------------------------------------//
     //
     //
-    	cliStatus();
-    //
     setInterval(function() {
-		cliStatus();
+        if(dir_local == "pages"){
+            cliStatus();
+        }
     }, 2000);
     //
     $("#starVenon").on("click", function() {
