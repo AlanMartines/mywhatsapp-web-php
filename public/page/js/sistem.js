@@ -91,8 +91,7 @@ $('document').ready(function () {
 
     //
     jQuery.validator.addMethod("filesize_max", function (value, element, param) {
-        var isOptional = this.optional(element),
-            file;
+        var isOptional = this.optional(element), file;
 
         if (isOptional) {
             return isOptional;
@@ -103,11 +102,12 @@ $('document').ready(function () {
             if (element.files && element.files.length) {
 
                 file = element.files[0];
-                return (file.size && file.size <= param);
+                return (file.size && file.size <= param * 1024000);
             }
         }
+        
         return false;
-    }, "O arquivo deve ser de no máximo 10 MB!");
+    }, 'O arquivo selecionado deve ser de no máximo {0} MB.');
     //
     //---------------------------------------------------------------------------------------------------------------------------------------------------//
     //
@@ -227,7 +227,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -242,7 +242,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -257,7 +257,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -272,7 +272,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('success', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -287,7 +287,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('error', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -302,7 +302,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('info', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -319,7 +319,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -399,7 +399,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('success', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -414,7 +414,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('error', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -429,7 +429,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -444,7 +444,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -459,7 +459,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -474,7 +474,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('info', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -491,7 +491,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -511,7 +511,9 @@ $('document').ready(function () {
     $("#sendTextMassa-form").validate({
         rules: {
             sendTextMassaContato: {
-                required: true
+                required: true,
+                extension: "txt",
+                filesize_max: 2
             },
             msgtxtmass: {
                 required: true,
@@ -520,7 +522,9 @@ $('document').ready(function () {
         },
         messages: {
             sendTextMassaContato: {
-                required: "Selecione o arquivo de contato!"
+                required: "Selecione o arquivo de contato!",
+                extension: "Informe um arquivo do tipo txt!",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB!"
             },
             msgtxtmass: {
                 required: "Informe sua menssagem!",
@@ -565,7 +569,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -580,7 +584,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -595,7 +599,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -641,7 +645,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -723,7 +727,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -738,7 +742,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -753,7 +757,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -799,7 +803,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -867,7 +871,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('success', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -882,7 +886,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('error', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -897,7 +901,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -912,7 +916,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -927,7 +931,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -942,7 +946,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('info', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -959,7 +963,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1036,7 +1040,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('success', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1051,7 +1055,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('error', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1066,7 +1070,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1081,7 +1085,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1096,7 +1100,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1111,7 +1115,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('info', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1130,7 +1134,7 @@ $('document').ready(function () {
             //
             Lobibox.notify('info', {
                 title: false,
-                soundPath: '/lobibox/sounds/',
+                soundPath: '../public/lobibox/sounds/',
                 soundExt: '.ogg',
                 sound: true,
                 iconSource: "fontAwesome",
@@ -1187,7 +1191,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('success', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1202,7 +1206,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('error', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1217,7 +1221,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1232,7 +1236,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1247,7 +1251,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1262,7 +1266,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('info', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1279,7 +1283,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1345,7 +1349,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1360,7 +1364,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1375,7 +1379,7 @@ $('document').ready(function () {
                         //
                         Lobibox.notify('warning', {
                             title: false,
-                            soundPath: '/lobibox/sounds/',
+                            soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
                             sound: true,
                             iconSource: "fontAwesome",
@@ -1420,7 +1424,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('info', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1560,7 +1564,7 @@ $('document').ready(function () {
                 //
                 Lobibox.notify('warning', {
                     title: false,
-                    soundPath: '/lobibox/sounds/',
+                    soundPath: '../public/lobibox/sounds/',
                     soundExt: '.ogg',
                     sound: true,
                     iconSource: "fontAwesome",
@@ -1575,7 +1579,7 @@ $('document').ready(function () {
                 //
                 Lobibox.notify('warning', {
                     title: false,
-                    soundPath: '/lobibox/sounds/',
+                    soundPath: '../public/lobibox/sounds/',
                     soundExt: '.ogg',
                     sound: true,
                     iconSource: "fontAwesome",
@@ -1590,7 +1594,7 @@ $('document').ready(function () {
                 //
                 Lobibox.notify('warning', {
                     title: false,
-                    soundPath: '/lobibox/sounds/',
+                    soundPath: '../public/lobibox/sounds/',
                     soundExt: '.ogg',
                     sound: true,
                     iconSource: "fontAwesome",
@@ -1645,7 +1649,7 @@ $('document').ready(function () {
             //
             Lobibox.notify('info', {
                 title: false,
-                soundPath: '/lobibox/sounds/',
+                soundPath: '../public/lobibox/sounds/',
                 soundExt: '.ogg',
                 sound: true,
                 iconSource: "fontAwesome",
@@ -1682,7 +1686,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('warning', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1697,7 +1701,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('warning', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1712,7 +1716,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('warning', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1767,7 +1771,7 @@ $('document').ready(function () {
                 //
                 Lobibox.notify('info', {
                     title: false,
-                    soundPath: '/lobibox/sounds/',
+                    soundPath: '../public/lobibox/sounds/',
                     soundExt: '.ogg',
                     sound: true,
                     iconSource: "fontAwesome",
@@ -1804,7 +1808,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('warning', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1819,7 +1823,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('warning', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1834,7 +1838,7 @@ $('document').ready(function () {
                     //
                     Lobibox.notify('warning', {
                         title: false,
-                        soundPath: '/lobibox/sounds/',
+                        soundPath: '../public/lobibox/sounds/',
                         soundExt: '.ogg',
                         sound: true,
                         iconSource: "fontAwesome",
@@ -1887,7 +1891,7 @@ $('document').ready(function () {
                 //
                 Lobibox.notify('info', {
                     title: false,
-                    soundPath: '/lobibox/sounds/',
+                    soundPath: '../public/lobibox/sounds/',
                     soundExt: '.ogg',
                     sound: true,
                     iconSource: "fontAwesome",

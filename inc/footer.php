@@ -38,9 +38,10 @@
 			</p>
 
 			<div class="footer-icons">
-				<a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
-				<a href="#" target="_blank"><i class="fab fa-facebook-square"></i></a>
-				<a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://api.whatsapp.com/send?phone=5567996787854&text=Ol%C3%A1%2C%20Tudo%20bem%3F" target="_blank"><i class="fab fa-whatsapp"></i></a>
+				<a href="https://www.facebook.com/alan.martines.7543" target="_blank"><i class="fab fa-facebook-square"></i></a>
+				<a href="https://instagram.com/alancpmartines?igshid=1120sy50x9xa9" target="_blank"><i class="fab fa-instagram"></i></a>
+				<a href="https://github.com/AlanMartines" target="_blank"><i class="fab fa-github"></i></a>
 			</div>
 		</div>
 

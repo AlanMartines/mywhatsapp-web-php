@@ -196,6 +196,10 @@ http://www.brandgradients.com/google-colors/
     color: #25D366;
 }
 
+.footer-distributed .footer-icons .fa-github:hover {
+    color: #4078c0;
+}
+
 .footer-distributed .footer-icons a {
     display: inline-block;
     width: 35px;
