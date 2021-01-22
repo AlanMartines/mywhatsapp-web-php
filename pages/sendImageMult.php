@@ -70,7 +70,7 @@ require_once(HEADER_TEMPLATE);
 								</div>
 							</div>
 							<div class="custom-file">
-								<input type="file" accept=".txt, .csv" class="rounded form-control custom-file-input" name="sendImageMassaContato" id="sendImageMassaContato" />
+								<input type="file" class="rounded form-control custom-file-input" name="sendImageMassaContato" id="sendImageMassaContato" />
 								<label class="custom-file-label" for="sendImageMassaContato" id="sendImageMassaContato-label">Selecione o arquivo de contatos...</label>
 							</div>
 							<br>

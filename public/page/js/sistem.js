@@ -124,12 +124,12 @@ $('document').ready(function () {
         },
         messages: {
             numero: {
-                required: "Informe um numero de telefone!",
-                celular: "Informe um celular válido!"
+                required: "Informe um numero de telefone.",
+                celular: "Informe um celular válido."
             },
             msg: {
-                required: "Informe sua menssagem!",
-                maxlength: "A mensagem deve conter no máximo 6.700 caracteres"
+                required: "Informe sua menssagem.",
+                maxlength: "A mensagem deve conter no máximo 6.700 caracteres."
             }
         },
         errorPlacement: function (error, element) {
@@ -302,17 +302,17 @@ $('document').ready(function () {
         },
         messages: {
             numeroimg: {
-                required: "Informe um numero de telefone!",
-                celular: "Informe um celular válido!"
+                required: "Informe um numero de telefone.",
+                celular: "Informe um celular válido."
             },
             fileimg: {
-                required: "Selecione o arquivo!",
+                required: "Selecione o arquivo.",
                 extension: "Informe um arquivo do tipo jpg, jpeg, gif, png e bmp.",
                 filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             },
             msgimg: {
-                required: "Informe sua menssagem!",
-                maxlength: "A mensagem deve conter no máximo 6.700 caracteres"
+                required: "Informe sua menssagem.",
+                maxlength: "A mensagem deve conter no máximo 6.700 caracteres."
             }
         },
         errorPlacement: function (error, element) {
@@ -486,13 +486,13 @@ $('document').ready(function () {
         },
         messages: {
             sendTextMassaContato: {
-                required: "Selecione o arquivo de contato!",
-                extension: "Informe um arquivo do tipo txt!",
-                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB!"
+                required: "Selecione o arquivo de contato.",
+                extension: "Informe um arquivo do tipo txt.",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             },
             msgtxtmass: {
-                required: "Informe sua menssagem!",
-                maxlength: "A mensagem deve conter no máximo 6.700 caracteres"
+                required: "Informe sua menssagem.",
+                maxlength: "A mensagem deve conter no máximo 6.700 caracteres."
             }
         },
         errorPlacement: function (error, element) {
@@ -644,11 +644,14 @@ $('document').ready(function () {
     $("#sendFileImgMassa-form").validate({
         rules: {
             sendImageMassaContato: {
-                required: true
+                required: true,
+                extension: "txt",
+                filesize_max: 2
             },
             FileImageMassa: {
                 required: true,
-                filesize_max: 10240000
+                extension: "jpg|jpeg|gif|png|bmp",
+                filesize_max: 10
             },
             msgimgmass: {
                 required: true,
@@ -657,15 +660,18 @@ $('document').ready(function () {
         },
         messages: {
             sendImageMassaContato: {
-                required: "Selecione o arquivo de contato!"
+                required: "Selecione o arquivo de contato.",
+                extension: "Informe um arquivo do tipo txt.",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             },
             FileImageMassa: {
-                required: "Selecione o arquivo!",
-                filesize_max: "O arquivo deve ser de no máximo 10 MB!"
+                required: "Selecione o arquivo.",
+                extension: "Informe um arquivo do tipo jpg, jpeg, gif, png e bmp.",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             },
             msgimgmass: {
-                required: "Informe sua menssagem!",
-                maxlength: "A mensagem deve conter no máximo 6.700 caracteres"
+                required: "Informe sua menssagem.",
+                maxlength: "A mensagem deve conter no máximo 6.700 caracteres."
             }
         },
         errorPlacement: function (error, element) {
@@ -827,11 +833,11 @@ $('document').ready(function () {
         },
         messages: {
             TextGrupo: {
-                required: "Selecione um grupo!"
+                required: "Selecione um grupo."
             },
             TextGrupoMsg: {
-                required: "Informe sua menssagem!",
-                maxlength: "A mensagem deve conter no máximo 6.700 caracteres"
+                required: "Informe sua menssagem.",
+                maxlength: "A mensagem deve conter no máximo 6.700 caracteres."
             }
         },
         errorPlacement: function (error, element) {
@@ -994,7 +1000,8 @@ $('document').ready(function () {
             },
             FileImageGrupo: {
                 required: true,
-                filesize_max: 10240000
+                extension: "jpg|jpeg|gif|png|bmp",
+                filesize_max: 10
             },
             msgimggrupo: {
                 required: true,
@@ -1003,15 +1010,16 @@ $('document').ready(function () {
         },
         messages: {
             ImgGrupo: {
-                required: "Selecione um grupo!"
+                required: "Selecione um grupo."
             },
             FileImageGrupo: {
-                required: "Selecione o arquivo!",
-                filesize_max: "O arquivo deve ser de no máximo 10 MB!"
+                required: "Selecione o arquivo.",
+                extension: "Informe um arquivo do tipo jpg, jpeg, gif, png e bmp.",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             },
             msgimggrupo: {
-                required: "Informe sua menssagem!",
-                maxlength: "A mensagem deve conter no máximo 6.700 caracteres"
+                required: "Informe sua menssagem.",
+                maxlength: "A mensagem deve conter no máximo 6.700 caracteres."
             }
         },
         errorPlacement: function (error, element) {
@@ -1180,8 +1188,8 @@ $('document').ready(function () {
         },
         messages: {
             numero: {
-                required: "Informe um numero de telefone!",
-                celular: "Informe um celular válido!"
+                required: "Informe um numero de telefone.",
+                celular: "Informe um celular válido."
             }
         },
         errorPlacement: function (error, element) {
@@ -1340,12 +1348,16 @@ $('document').ready(function () {
     $("#checkNumberStatusMassa-form").validate({
         rules: {
             checkNumberStatusMassaContato: {
-                required: true
+                required: true,
+                extension: "txt",
+                filesize_max: 2
             }
         },
         messages: {
             checkNumberStatusMassaContato: {
-                required: "Selecione o arquivo de contato!"
+                required: "Selecione o arquivo de contato.",
+                extension: "Informe um arquivo do tipo txt.",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             }
         },
         errorPlacement: function (error, element) {

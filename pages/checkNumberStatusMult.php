@@ -71,7 +71,7 @@ require_once(HEADER_TEMPLATE);
 								</div>
 							</div>
 							<div class="custom-file">
-								<input type="file" accept=".txt, .csv" class="rounded form-control" name="checkNumberStatusMassaContato" id="checkNumberStatusMassaContato" />
+								<input type="file" class="rounded form-control" name="checkNumberStatusMassaContato" id="checkNumberStatusMassaContato" />
 								<label class="custom-file-label" for="checkNumberStatusMassaContato" id="checkNumberStatusMassaContato-label">Selecione o arquivo de contatos...</label>
 							</div>
 							<br>
