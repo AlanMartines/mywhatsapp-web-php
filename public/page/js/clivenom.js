@@ -1,4 +1,6 @@
 //
+String.prototype.capitalize = function() { return this.charAt(0).toUpperCase() + this.substr(1); }
+//
 function cliStatus(){
         var SessionName = $("#SessionName").val();
         $.ajax({
@@ -177,7 +179,7 @@ function getHostDevice() {
             	$("#contatoVenon").html(response.wid.user);
             	$("#waversaoVenon").html(response.phone.wa_version);
                 $("#bateriaVenon").html(response.battery+' %');
-                $("#sistemaVenon").html(response.platform+' '+response.phone.os_version);
+                $("#sistemaVenon").html(response.platform.capitalize()+' '+response.phone.os_version);
                 var carregador = '';
                 if(response.plugged === true){
                 	carregador = 'Conectado';
