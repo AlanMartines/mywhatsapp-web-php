@@ -71,12 +71,6 @@ require_once(HEADER_TEMPLATE);
 							</div>
 							<input type="text" class="mask-celular rounded form-control" name="numero" id="numero" />
 							<input type="hidden" name="phonefull" id="phonefull" />
-							<div class="valid-feedback feedback-icon">
-								<i class="fas fa-check"></i>
-							</div>
-							<div class="invalid-feedback feedback-icon">
-								<i class="fas fa-times"></i>
-							</div>
 						</div>
 						<span class="help-block r" id="error"></span>
 					</div>
@@ -87,7 +81,7 @@ require_once(HEADER_TEMPLATE);
 									<i class="fas fa-comment-alt"></i>
 								</div>
 							</div>
-							<textarea class="rounded form-control" name="msg" id="msg" rows="5" placeholder="Menssagem"></textarea>
+							<textarea class="rounded form-control" name="msg" id="msg" rows="3" placeholder="Menssagem"></textarea>
 						</div>
 						<span class="help-block r" id="error"></span>
 					</div>

@@ -30,7 +30,12 @@ function cliStatus(){
                 $("#statusVenon").html("Rodando");
                 $("#startVenom").html("Ler QR-Code");
                 getHostDevice();
-            } else if (response.result == "success" && response.state == "CONNECTED" && response.status == "inChat" || response.status == "isLogged") {
+            } else if (response.result == "success" && response.state == "CONNECTED" && response.status == "inChat") {
+                $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-bot.png" class="img-fluid" width="160px" alt="Info">');
+                $("#statusVenon").html("Rodando");
+                $("#startVenom").html("Iniciado");
+                getHostDevice();
+            }  else if (response.result == "success" && response.state == "CONNECTED" && response.status == "isLogged") {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-bot.png" class="img-fluid" width="160px" alt="Info">');
                 $("#statusVenon").html("Rodando");
                 $("#startVenom").html("Iniciado");

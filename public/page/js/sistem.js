@@ -111,72 +111,6 @@ $('document').ready(function () {
     //
     //---------------------------------------------------------------------------------------------------------------------------------------------------//
     //
-    $("#login-form").validate({
-        rules: {
-            email: {
-                required: true
-            },
-            pwd: {
-                required: true
-            }
-        },
-        messages: {
-            email: {
-                required: "Informe seu e-mail!"
-            },
-            pwd: {
-                required: "Informe sua senha!"
-            }
-        },
-        errorPlacement: function (error, element) {
-            $(element).closest('.form-group').find('.help-block').html(error.html());
-        },
-        highlight: function (element) {
-            $(element).closest('.form-control').removeClass('is-valid').addClass('is-invalid');
-            $(element).closest('.custom-select').removeClass('is-valid').addClass('is-invalid');
-        },
-        unhighlight: function (element, errorClass, validClass) {
-            $(element).closest('.form-group').find('.help-block').html('');
-            $(element).closest('.form-control').removeClass('is-invalid').addClass('is-valid');
-            $(element).closest('.custom-select').removeClass('is-invalid').addClass('is-valid');
-        },
-        submitHandler: function () {
-            //event.preventDefault();
-            var data = $("#login-form").serialize();
-            $.ajax({
-                type: 'POST',
-                url: './login',
-                data: data,
-                dataType: 'json',
-                beforeSend: function () {
-                    $("#send_form").html('<i class="fas fa-spinner fa-spin"></i> Logando ...');
-                },
-                success: function (response) {
-                    if (response.codigo == "1") {
-                        $("#send_form").html('Logar');
-                        $("#login-alert").css('display', 'none');
-                        window.location.href = "../home/";
-                    } else {
-                        $("#send_form").html('Logar');
-                        console.log('Menssagem: ' + response.mensagem);
-                        console.log('Debug: ' + response.debug);
-                        $("#mensagem").html('<center>' +
-                            '<div class="panel-body padding-top-md" >' +
-                            '<div id="login-alert" class="alert alert-' + response.alerta + ' col-sm-6">' +
-                            response.iconem + '&#32;' + response.mensagem +
-                            '</div>' +
-                            '</div>' +
-                            '</center>');
-                        $("#login-alert").css('display', 'block');
-                        window.scrollTo(0, 0);
-                    }
-                }
-            });
-        }
-    });
-    //
-    //---------------------------------------------------------------------------------------------------------------------------------------------------//
-    //
     $("#sendText-form").validate({
         rules: {
             numero: {
@@ -223,9 +157,9 @@ $('document').ready(function () {
                 },
                 success: function (response) {
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -238,7 +172,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -252,10 +186,25 @@ $('document').ready(function () {
                             msg: response.message
                         });
                         //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -343,7 +292,8 @@ $('document').ready(function () {
             },
             fileimg: {
                 required: true,
-                filesize_max: 10240000
+                extension: "jpg|jpeg|gif|png|bmp",
+                filesize_max: 10
             },
             msgimg: {
                 required: true,
@@ -357,7 +307,8 @@ $('document').ready(function () {
             },
             fileimg: {
                 required: "Selecione o arquivo!",
-                filesize_max: "O arquivo deve ser de no máximo 10 MB!"
+                extension: "Informe um arquivo do tipo jpg, jpeg, gif, png e bmp.",
+                filesize_max: "O arquivo selecionado deve ser de no máximo {0} MB."
             },
             msgimg: {
                 required: "Informe sua menssagem!",
@@ -392,9 +343,67 @@ $('document').ready(function () {
                     $("#sendImage").html('<i class="fas fa-spinner fa-spin"></i> Enviando...');
                 },
                 success: function (response) {
-                    console.log("Erro:" + response.erro);
-                    console.log("Status:" + response.status);
-                    if (response.erro == false && response.status == 'OK') {
+                    if (response.result == 'error' && response.state == 'NOTFOUND') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'info' && response.state == 'STARTING') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('warning', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.erro == false && response.status == 'OK') {
                         $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('success', {
@@ -422,51 +431,6 @@ $('document').ready(function () {
                             size: 'mini',
                             delay: 5000,
                             msg: 'Erro ao enviada menssagem!'
-                        });
-                        //
-                    } else if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
                         });
                         //
                     } else {
@@ -565,9 +529,9 @@ $('document').ready(function () {
                     var table_error = '';
                     //
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -580,7 +544,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -594,10 +558,25 @@ $('document').ready(function () {
                             msg: response.message
                         });
                         //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -723,9 +702,9 @@ $('document').ready(function () {
                     var table_error = '';
                     //
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -738,7 +717,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendFileImgMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -752,10 +731,25 @@ $('document').ready(function () {
                             msg: response.message
                         });
                         //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendFileImgMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -864,9 +858,67 @@ $('document').ready(function () {
                     $("#sendTextGrupo").html('<i class="fas fa-spinner fa-spin"></i> Enviando...');
                 },
                 success: function (response) {
-                    console.log("Erro:" + response.erro);
-                    console.log("Status:" + response.status);
-                    if (response.erro == false && response.status == 'OK') {
+                if (response.result == 'error' && response.state == 'NOTFOUND') {
+                    $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    //
+                    Lobibox.notify('error', {
+                        title: false,
+                        soundPath: '../public/lobibox/sounds/',
+                        soundExt: '.ogg',
+                        sound: true,
+                        iconSource: "fontAwesome",
+                        icon: 'fas fa-times-circle',
+                        size: 'mini',
+                        delay: 5000,
+                        msg: response.message
+                    });
+                    //
+                } else if (response.result == 'info' && response.state == 'STARTING') {
+                    $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    //
+                    Lobibox.notify('warning', {
+                        title: false,
+                        soundPath: '../public/lobibox/sounds/',
+                        soundExt: '.ogg',
+                        sound: true,
+                        iconSource: "fontAwesome",
+                        icon: 'fas fa-times-circle',
+                        size: 'mini',
+                        delay: 5000,
+                        msg: response.message
+                    });
+                    //
+                }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                    $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    //
+                    Lobibox.notify('error', {
+                        title: false,
+                        soundPath: '../public/lobibox/sounds/',
+                        soundExt: '.ogg',
+                        sound: true,
+                        iconSource: "fontAwesome",
+                        icon: 'fas fa-times-circle',
+                        size: 'mini',
+                        delay: 5000,
+                        msg: response.message
+                    });
+                    //
+                } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                    $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    //
+                    Lobibox.notify('info', {
+                        title: false,
+                        soundPath: '../public/lobibox/sounds/',
+                        soundExt: '.ogg',
+                        sound: true,
+                        iconSource: "fontAwesome",
+                        icon: 'fas fa-times-circle',
+                        size: 'mini',
+                        delay: 5000,
+                        msg: response.message
+                    });
+                    //
+                } else if (response !== false) {
                         $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('success', {
@@ -881,7 +933,7 @@ $('document').ready(function () {
                             msg: 'Menssagem enviada com sucesso!'
                         });
                         //
-                    } else if (response.erro == true && response.status == '404') {
+                    } else if (response.erro === false) {
                         $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
@@ -894,51 +946,6 @@ $('document').ready(function () {
                             size: 'mini',
                             delay: 5000,
                             msg: 'Erro ao enviada menssagem!'
-                        });
-                        //
-                    } else if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
                         });
                         //
                     } else {
@@ -1035,7 +1042,67 @@ $('document').ready(function () {
                     $("#sendFileImgGrupo").html('<i class="fas fa-spinner fa-spin"></i> Enviando...');
                 },
                 success: function (response) {
-                    if (response.erro == false && response.status == 'OK') {
+                    if (response.result == 'error' && response.state == 'NOTFOUND') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'info' && response.state == 'STARTING') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('warning', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.erro == false && response.status == 'OK') {
                         $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('success', {
@@ -1063,51 +1130,6 @@ $('document').ready(function () {
                             size: 'mini',
                             delay: 5000,
                             msg: 'Erro ao enviada menssagem!'
-                        });
-                        //
-                    } else if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
                         });
                         //
                     } else {
@@ -1186,7 +1208,67 @@ $('document').ready(function () {
                     $("#checkNumberStatus").html('<i class="fas fa-spinner fa-spin"></i> Validando...');
                 },
                 success: function (response) {
-                    if (response.numberExists == true && response.status == '200') {
+                    if (response.result == 'error' && response.state == 'NOTFOUND') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'info' && response.state == 'STARTING') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('warning', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.numberExists == true && response.status == '200') {
                         $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
                         //
                         Lobibox.notify('success', {
@@ -1214,51 +1296,6 @@ $('document').ready(function () {
                             size: 'mini',
                             delay: 5000,
                             msg: 'Contato não pode receber mensagem!'
-                        });
-                        //
-                    } else if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
-                        });
-                        //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
-                        //
-                        Lobibox.notify('warning', {
-                            title: false,
-                            soundPath: '../public/lobibox/sounds/',
-                            soundExt: '.ogg',
-                            sound: true,
-                            iconSource: "fontAwesome",
-                            icon: 'fas fa-times-circle',
-                            size: 'mini',
-                            delay: 5000,
-                            msg: response.message
                         });
                         //
                     } else {
@@ -1345,9 +1382,9 @@ $('document').ready(function () {
                     var table_error = '';
                     //
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',
@@ -1360,7 +1397,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Validar');
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -1374,10 +1411,25 @@ $('document').ready(function () {
                             msg: response.message
                         });
                         //
-                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Validar');
+                    }  else if (response.result == 'info' && response.state == 'CLOSED') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
-                        Lobibox.notify('warning', {
+                        Lobibox.notify('error', {
+                            title: false,
+                            soundPath: '../public/lobibox/sounds/',
+                            soundExt: '.ogg',
+                            sound: true,
+                            iconSource: "fontAwesome",
+                            icon: 'fas fa-times-circle',
+                            size: 'mini',
+                            delay: 5000,
+                            msg: response.message
+                        });
+                        //
+                    } else if (response.result == 'warning' && response.state == 'QRCODE') {
+                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        //
+                        Lobibox.notify('info', {
                             title: false,
                             soundPath: '../public/lobibox/sounds/',
                             soundExt: '.ogg',

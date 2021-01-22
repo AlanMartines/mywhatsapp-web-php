@@ -71,12 +71,6 @@ require_once(HEADER_TEMPLATE);
 							</div>
 							<input type="text" class="mask-celular rounded form-control" name="numero" id="numero" />
 							<input type="hidden" name="phonefull" id="phonefull" />
-							<div class="valid-feedback feedback-icon">
-								<i class="fas fa-check"></i>
-							</div>
-							<div class="invalid-feedback feedback-icon">
-								<i class="fas fa-times"></i>
-							</div>
 						</div>
 						<span class="help-block r" id="error"></span>
 					</div>
@@ -89,8 +83,7 @@ require_once(HEADER_TEMPLATE);
 							</div>
 							<div class="custom-file">
 								<input type="file" accept="image/*" class="rounded form-control" name="fileimg" id="fileimg" />
-								<label class="custom-file-label" for="fileimg" id="fileName-labe">Selecione o
-									arquivo...</label>
+								<label class="custom-file-label" for="fileimg" id="fileName-labe">Selecione o arquivo...</label>
 							</div>
 							<br>
 							<input type="hidden" name="fileName" id="fileName" />

@@ -92,7 +92,7 @@ require_once(HEADER_TEMPLATE);
 									<i class="fas fa-comment-alt"></i>
 								</div>
 							</div>
-							<textarea class="rounded form-control" name="msgtxtmass" id="msgtxtmass" rows="5" placeholder="Menssagem"></textarea>
+							<textarea class="rounded form-control" name="msgtxtmass" id="msgtxtmass" rows="3" placeholder="Menssagem"></textarea>
 						</div>
 						<span class="help-block r" id="error"></span>
 					</div>
