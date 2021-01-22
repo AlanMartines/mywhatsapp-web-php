@@ -71,12 +71,6 @@ require_once(HEADER_TEMPLATE);
 							</div>
 							<input type="text" class="mask-celular rounded form-control" name="numero" id="numero" />
 							<input type="hidden" name="phonefull" id="phonefull" />
-							<div class="valid-feedback feedback-icon">
-								<i class="fas fa-check"></i>
-							</div>
-							<div class="invalid-feedback feedback-icon">
-								<i class="fas fa-times"></i>
-							</div>
 						</div>
 						<span class="help-block r" id="error"></span>
 					</div>
