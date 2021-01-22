@@ -4,7 +4,7 @@
 </p>
 
 # My Whats - Web
- Este projeto usa como base o [Venom-bot](https://github.com/orkestral/venom "Venom-bot"), um navegador virtual sem interface gráfica que abre o whatsapp web e executa todos os comandos via código possibilitando assim a automação de todas as funções, para uso dessse projeto necessario [mywhats-api-node](https://github.com/AlanMartines/mywhats-api-node "mywhats-api-node").
+ Este projeto usa como base o [Venom-bot](https://github.com/orkestral/venom "Venom-bot"), um navegador virtual sem interface gráfica que abre o whatsapp web e executa todos os comandos via código possibilitando assim a automação de todas as funções, para uso desse projeto necessario [mywhats-api-node](https://github.com/AlanMartines/mywhats-api-node "mywhats-api-node").
 
 ## Uso
 #### Acesso via web (Em desenvolvimento a integração/automatização)
