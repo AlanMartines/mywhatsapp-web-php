@@ -37,7 +37,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <!-- Inicio - Image and text -->
   <nav class="navbar navbar-dark navbar-expand-lg">
     <a class="navbar-brand" href="../home/">
-      <img src="../images/favicon.png" height="32" class="img-fliud d-inline-block align-top" />
+      <img src="../public/imagens/favicon.png" height="32" class="img-fliud d-inline-block align-top" />
       Eletroinfo
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

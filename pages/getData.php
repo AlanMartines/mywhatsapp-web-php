@@ -48,10 +48,17 @@ require_once(HEADER_TEMPLATE);
 	<div class="col-sm-12">
 		<div class="card border-info mb-3">
 			<div class="card-header text-white bg-info font-weight-bold text-center">
-				<button id="getBlockList" type="button" class="btn btn-sm btn-success"><i class="fas fa-paper-plane"></i> Listar Bloqueados</button>
-				<button id="getAllContacts" type="button" class="btn btn-sm btn-warning"><i class="fas fa-paper-plane"></i> Listar Contatos</button>
-				<button id="getAllGroups" type="button" class="btn btn-sm btn-danger"><i class="fas fa-paper-plane"></i>
-					Listar Grupos</button>
+				<div class="row d-flex justify-content-center">
+					<div class="col-md-4 text-center">
+						<button id="getBlockList" type="button" class="btn btn-sm btn-success"><i class="fas fa-paper-plane"></i> Listar Contatos Bloqueados</button>
+					</div>
+					<div class="col-md-4 text-center">
+						<button id="getAllContacts" type="button" class="btn btn-sm btn-warning"><i class="fas fa-paper-plane"></i> Listar Contatos</button>
+					</div>
+					<div class="col-md-4 text-center">
+						<button id="getAllGroups" type="button" class="btn btn-sm btn-danger"><i class="fas fa-paper-plane"></i>Listar Grupos</button>
+					</div>
+				</div>
 			</div>
 			<div class="card-body text-secondary text-center align-items-center">
 				<div class="col-md-12 text-center">

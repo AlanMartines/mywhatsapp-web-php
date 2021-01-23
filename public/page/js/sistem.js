@@ -1612,7 +1612,7 @@ $('document').ready(function () {
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: '/sistem/getBlockList',
+        url: 'http://localhost:9000/sistem/getBlockList',
         data: { "SessionName": SessionName },
         beforeSend: function () {
             $("#getBlockList").html('<i class="fas fa-spinner fa-spin"></i> Carregando...');
@@ -1675,31 +1675,27 @@ $('document').ready(function () {
                 table_success += '<thead class="thead-dark">';
                 table_success += '<tr>';
                 table_success += '<th scope="col">#</th>';
-                table_success += '<th scope="col">Nome</th>';
                 table_success += '<th scope="col">Numero</th>';
                 table_success += '<th scope="col">Foto Perfil</th>';
                 table_success += '</tr>';
                 table_success += '</thead>';
                 table_success += '<tbody id="table_success"></tbody>';
 
-                $.each(response, function (key, value) {
+                $.each(response.BlockList, function (key, value) {
                     //CONSTRUCTION OF ROWS HAVING 
                     // DATA FROM JSON OBJECT
-                        if (value.isMyContact === true) {
-                            table_success += '<tr>';
-                            table_success += '<td>' + count + '</td>';
-                            table_success += '<td>'+value.name+'</td>';
-                            table_success += '<td>'+value.id.user+'</td>';
-                            if(!value.profilePicThumbObj.eurl){
-                                table_success += '<td><img class="img-fluid" src="/images/sem_foto.png" style="width: 28px; height: 28px"></td>';
-                            }else{
-                                table_success += '<td><a href="'+value.profilePicThumbObj.eurl+'" target="_blank" ><img class="img-fluid" src="'+value.profilePicThumbObj.eurl+'" style="width: 28px; height: 28px"></a></td>';
-                            }
-                            table_success += '</tr>';
-                            count++;
-                        }
-                        
+                    if (value) {
+                        var strData = value.toString().replace('@c.us', '');
+                        table_success += '<tr>';
+                        table_success += '<td>' + count + '</td>';
+                        table_success += '<td>'+strData+'</td>';
+                        table_success += '<td><img class="img-fluid" src="../public/imagens/sem-foto.jpg" style="width: 28px; height: 28px"></td>';
+                        table_success += '</tr>';
+                        count++;
+                    }
                 });
+                table_success += '</tbody>';
+                table_success += '</table>';
                 $("#getBlockList").html('<i class="fas fa-paper-plane"></i> Listar Contatos Bloqueados');
                 //
                 table_success += '</table>';
@@ -1812,16 +1808,20 @@ $('document').ready(function () {
                                 table_success += '<td>' + count + '</td>';
                                 table_success += '<td>'+value.name+'</td>';
                                 table_success += '<td>'+value.id.user+'</td>';
+                                
                                 if(!value.profilePicThumbObj.eurl){
-                                    table_success += '<td><img class="img-fluid" src="/images/sem_foto.png" style="width: 28px; height: 28px"></td>';
+                                    table_success += '<td><img class="img-fluid" src="../public/imagens/sem-foto.jpg" style="width: 28px; height: 28px"></td>';
                                 }else{
                                     table_success += '<td><a href="'+value.profilePicThumbObj.eurl+'" target="_blank" ><img class="img-fluid" src="'+value.profilePicThumbObj.eurl+'" style="width: 28px; height: 28px"></a></td>';
                                 }
+                                
                                 table_success += '</tr>';
                                 count++;
                             }
                             
                     });
+					table_success += '</tbody>';
+					table_success += '</table>';
                     $("#getAllContacts").html('<i class="fas fa-paper-plane"></i> Listar Contatos');
                     //
                     table_success += '</table>';
@@ -1933,7 +1933,7 @@ $('document').ready(function () {
                                 table_success += '<td>' + count + '</td>';
                                 table_success += '<td>'+value.contact.name+'</td>';
                                 if(!value.contact.profilePicThumbObj.eurl){
-                                    table_success += '<td><img class="img-fluid" src="/images/sem_foto.png" style="width: 28px; height: 28px"></td>';
+                                    table_success += '<td><img class="img-fluid" src="../public/imagens/sem-foto.jpg" style="width: 28px; height: 28px"></td>';
                                 }else{
                                     table_success += '<td><a href="'+value.contact.profilePicThumbObj.eurl+'" target="_blank" ><img class="img-fluid" src="'+value.contact.profilePicThumbObj.eurl+'" style="width: 28px; height: 28px"></a></td>';
                                 }
@@ -1942,6 +1942,8 @@ $('document').ready(function () {
                             }
                             
                     });
+					table_success += '</tbody>';
+					table_success += '</table>';
                     $("#getAllGroups").html('<i class="fas fa-paper-plane"></i> Listar Grupos');
                     //
                     table_success += '</table>';
