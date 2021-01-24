@@ -81,7 +81,7 @@ require_once(HEADER_TEMPLATE);
 					</div>
 				</div>
 				<div class="card-footer text-muted text-center">
-					<button type="submit" name="checkNumberStatusMassa" id="checkNumberStatusMassa" class="btn btn-sm btn-primary"><i class="fas fa-paper-plane"></i> Validar</button>
+					<button type="submit" name="checkNumberStatusMassa" id="checkNumberStatusMassa" class="btn btn-sm btn-primary"><i class="fas fa-paper-plane"></i> Checar</button>
 				</div>
 			</div>
 		</form>

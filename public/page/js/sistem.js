@@ -157,7 +157,7 @@ $('document').ready(function () {
                 },
                 success: function (response) {
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -172,7 +172,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -187,7 +187,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -202,7 +202,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -264,7 +264,7 @@ $('document').ready(function () {
                     }
                 },
                 error: (e) => {
-                    $("#sendText").html('<i class="fas fa-paper-plane"></i> Enviar');
+                    $("#sendTexto").html('<i class="fas fa-paper-plane"></i> Enviar');
                     //
                     Lobibox.notify('info', {
                         title: false,
@@ -344,7 +344,7 @@ $('document').ready(function () {
                 },
                 success: function (response) {
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -359,7 +359,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -374,7 +374,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -389,7 +389,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendImage").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -529,7 +529,7 @@ $('document').ready(function () {
                     var table_error = '';
                     //
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -544,7 +544,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -559,7 +559,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -574,7 +574,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendTextMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -708,7 +708,7 @@ $('document').ready(function () {
                     var table_error = '';
                     //
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -723,7 +723,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -738,7 +738,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -753,7 +753,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgMassa").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -1051,7 +1051,7 @@ $('document').ready(function () {
                 },
                 success: function (response) {
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1066,7 +1066,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -1081,7 +1081,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1096,7 +1096,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#sendFileImgGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -1213,11 +1213,11 @@ $('document').ready(function () {
                 data: data,
                 dataType: 'json',
                 beforeSend: function () {
-                    $("#checkNumberStatus").html('<i class="fas fa-spinner fa-spin"></i> Validando...');
+                    $("#checkNumberStatus").html('<i class="fas fa-spinner fa-spin"></i> Checando...');
                 },
                 success: function (response) {
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1232,7 +1232,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -1247,7 +1247,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1262,7 +1262,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -1277,7 +1277,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.numberExists == true && response.status == '200') {
-                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('success', {
                             title: false,
@@ -1292,7 +1292,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.canReceiveMessage == false && response.status == '404') {
-                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1307,7 +1307,7 @@ $('document').ready(function () {
                         });
                         //
                     } else {
-                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
+                        $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -1324,7 +1324,7 @@ $('document').ready(function () {
                     }
                 },
                 error: (e) => {
-                    $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Validar');
+                    $("#checkNumberStatus").html('<i class="fas fa-paper-plane"></i> Checar');
                     //
                     Lobibox.notify('info', {
                         title: false,
@@ -1385,16 +1385,16 @@ $('document').ready(function () {
                 contentType: false,
                 cache: false,
                 beforeSend: function () {
-                    $("#checkNumberStatusMassa").html('<i class="fas fa-spinner fa-spin"></i> Validando...');
+                    $("#checkNumberStatusMassa").html('<i class="fas fa-spinner fa-spin"></i> Checando...');
                 },
                 success: function (response) {
                     //https://www.geeksforgeeks.org/how-to-fetch-data-from-json-file-and-display-in-html-table-using-jquery/
-                    $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Validar');
+                    $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                     var table_success = '';
                     var table_error = '';
                     //
                     if (response.result == 'error' && response.state == 'NOTFOUND') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1409,7 +1409,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'info' && response.state == 'STARTING') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('warning', {
                             title: false,
@@ -1424,7 +1424,7 @@ $('document').ready(function () {
                         });
                         //
                     }  else if (response.result == 'info' && response.state == 'CLOSED') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('error', {
                             title: false,
@@ -1439,7 +1439,7 @@ $('document').ready(function () {
                         });
                         //
                     } else if (response.result == 'warning' && response.state == 'QRCODE') {
-                        $("#sendTextGrupo").html('<i class="fas fa-paper-plane"></i> Enviar');
+                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         Lobibox.notify('info', {
                             title: false,
@@ -1472,7 +1472,7 @@ $('document').ready(function () {
                                 }
                             }
                         });
-                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Validar');
+                        $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                         //
                         $('#checkNumberStatusMassaModalCentralizado').modal('show');
                         //INSERTING ROWS INTO TABLE
@@ -1484,7 +1484,7 @@ $('document').ready(function () {
                     }
                 },
                 error: (e) => {
-                    $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Validar');
+                    $("#checkNumberStatusMassa").html('<i class="fas fa-paper-plane"></i> Checar');
                     //
                     Lobibox.notify('info', {
                         title: false,
@@ -1497,9 +1497,7 @@ $('document').ready(function () {
                         delay: 5000,
                         msg: 'Erro interno, menssagem não enviada!'
                     });
-
                 }
-
             });
         }
     });
