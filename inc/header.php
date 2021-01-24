@@ -50,10 +50,8 @@ if (session_status() == PHP_SESSION_NONE) {
             <i class="fas fa-text-height"></i>&#32;Enviar Texto
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbar">
-            <a class="dropdown-item" href="../pages/sendText.php"><i class="fas fa-user"></i>&#32;Enviar Texto - Simples
-              Contato</a>
-            <a class="dropdown-item" href="../pages/sendTextMult.php"><i class="fas fa-users"></i>&#32;Enviar Texto - Multiplos
-              Contatos</a>
+            <a class="dropdown-item" href="../pages/sendText.php"><i class="fas fa-user"></i>&#32;Enviar Texto - Simples Contato</a>
+            <a class="dropdown-item" href="../pages/sendTextMult.php"><i class="fas fa-users"></i>&#32;Enviar Texto - Múltiplos Contatos</a>
             <a class="dropdown-item" href="../pages/sendTextGrupo.php"><i class="fas fa-user"></i>&#32;Enviar Texto - Grupo</a>
           </div>
         </li>
@@ -63,10 +61,8 @@ if (session_status() == PHP_SESSION_NONE) {
             <i class="fas fa-file-image"></i>&#32;Enviar Imagem
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbar">
-            <a class="dropdown-item" href="../pages/sendImage.php"><i class="fas fa-user"></i>&#32;Enviar Imagem - Simples
-              Contato</a>
-            <a class="dropdown-item" href="../pages/sendImageMult.php"><i class="fas fa-users"></i>&#32;Enviar Imagem -
-              Multiplos Contatos</a>
+            <a class="dropdown-item" href="../pages/sendImage.php"><i class="fas fa-user"></i>&#32;Enviar Imagem - Simples Contato</a>
+            <a class="dropdown-item" href="../pages/sendImageMult.php"><i class="fas fa-users"></i>&#32;Enviar Imagem - Múltiplos Contatos</a>
             <a class="dropdown-item" href="../pages/sendImgGrupo.php"><i class="fas fa-user"></i>&#32;Enviar Imagem - Grupo</a>
           </div>
         </li>
@@ -76,10 +72,8 @@ if (session_status() == PHP_SESSION_NONE) {
             <i class="fas fa-phone-alt"></i>&#32;Checar Numero
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbar">
-            <a class="dropdown-item" href="../pages/checkNumberStatus.php"><i class="fas fa-user"></i>&#32;Checar Simples
-              Contato</a>
-            <a class="dropdown-item" href="../pages/checkNumberStatusMult.php"><i class="fas fa-users"></i>&#32;Checar Multiplos
-              Contatos</a>
+            <a class="dropdown-item" href="../pages/checkNumberStatus.php"><i class="fas fa-user"></i>&#32;Checar Simples Contato</a>
+            <a class="dropdown-item" href="../pages/checkNumberStatusMult.php"><i class="fas fa-users"></i>&#32;Checar Múltiplos Contatos</a>
           </div>
         </li>
 
