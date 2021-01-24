@@ -48,8 +48,7 @@ require_once(HEADER_TEMPLATE);
 	<div class="col-sm-10">
 		<form class="text-center" id="checkNumberStatusMassa-form" method="post" enctype="multipart/form-data" action="javascript:void(0)">
 			<div class="card border-success mb-3">
-				<div class="card-header text-white bg-success font-weight-bold text-center">Checar Numero / Contato em
-					massa</div>
+				<div class="card-header text-white bg-success font-weight-bold text-center">Checar Número / Contato em massa</div>
 				<div class="card-body text-success text-center ">
 					<div class="col-md-12 text-center">
 						<div class="form-group col-12 text-center">

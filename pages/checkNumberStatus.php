@@ -48,7 +48,7 @@ require_once(HEADER_TEMPLATE);
 	<div class="col-sm-10">
 		<form class="text-center" id="checkNumberStatus-form" method="post" enctype="multipart/form-data" action="javascript:void(0)">
 			<div class="card border-secondary mb-3">
-				<div class="card-header text-white bg-secondary font-weight-bold text-center">Checar Numero</div>
+				<div class="card-header text-white bg-secondary font-weight-bold text-center">Checar Número</div>
 				<div class="card-body text-secondary text-center align-items-center">
 					<div class="col-md-12 text-center">
 						<div class="form-group col-12 text-center">
