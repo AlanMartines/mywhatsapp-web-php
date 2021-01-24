@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="./images/whatsapp-bot.png" width="150" alt="My Whats">
+  <img src="./public/imagens/whatsapp-bot.png" width="150" alt="My Whats">
 </p>
 
 # My Whats - Web

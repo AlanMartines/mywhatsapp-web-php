@@ -19,9 +19,11 @@ function cliStatus(){
                 $("#startVenom").html("Desconectado");
                 $("#statusVenon").html("Parado");
                 //
-                $("#waversaoVenon").html('');
-                $("#bateriaVenon").html('');
-                $("#sistemaVenon").html('');
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             } else if (response.result == "info" && response.state == "STARTING") {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-bot.png" class="img-fluid" width="160px" alt="Info">');
                 $("#statusVenon").html("Rodando");
@@ -47,30 +49,33 @@ function cliStatus(){
                 $("#statusVenon").html("Rodando");
                 $("#startVenom").html("Desconectado");
                 //
-                $("#waversaoVenon").html('');
-                $("#bateriaVenon").html('');
-                $("#sistemaVenon").html('');
-                $("#contatoVenon").html('');
-                $("#carregadorVenon").html('');
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             } else  {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
                 $("#statusVenon").html("Parado");
                 $("#startVenom").html("Desconectado");
                 //
-                $("#waversaoVenon").html('');
-                $("#bateriaVenon").html('');
-                $("#sistemaVenon").html('');
-                $("#contatoVenon").html('');
-                $("#carregadorVenon").html('');
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             }
             },
 			error: function(xhr, textStatus, error){
-			    //console.log(xhr.statusText);
-			    //console.log(textStatus);
-			    //console.log(error);
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
                 $("#statusVenon").html("Parado");
                 $("#startVenom").html("Desconectado");
+                //
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
 			}
     	});
     //
@@ -86,28 +91,51 @@ function startVenon() {
         },
         dataType: 'json',
         beforeSend: function () {
-
         },
         success: function (response) {
             if (response.result == "info" && response.state == "STARTING") {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-bot.png" class="img-fluid" width="160px" alt="Info">');
                 $("#statusVenon").html("Rodando");
                 $("#startVenom").html("Iniciando");
+                //
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             } else {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
                 $("#statusVenon").html("Parado");
-		        $("#startVenom").html("Desconectado");
+                $("#startVenom").html("Desconectado");
+                //
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             }
         },
 		error: function(xhr, textStatus, error){
             $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
             $("#statusVenon").html("Parado");
             $("#startVenom").html("Desconectado");
+            //
+            $("#contatoVenon").html("----------");
+            $("#waversaoVenon").html("----------");
+            $("#bateriaVenon").html("----------");
+            $("#sistemaVenon").html("----------");
+            $("#carregadorVenon").html("----------");
 		}
     }).fail(function (jqXHR, textStatus, msg) {
         $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
         $("#statusVenon").html("Rodando");
         $("#startVenom").html("Desonectado");
+        //
+        $("#contatoVenon").html("----------");
+        $("#waversaoVenon").html("----------");
+        $("#bateriaVenon").html("----------");
+        $("#sistemaVenon").html("----------");
+        $("#carregadorVenon").html("----------");
     });
 }
 //
@@ -121,21 +149,38 @@ function closeVenon() {
         },
         dataType: 'json',
         beforeSend: function () {
-
         },
         success: function (response) {
             if (response.result == "success" && response.state == "CLOSED") {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
                 $("#startVenom").html("Saindo...");
+                //
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             } else {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-bot.png" class="img-fluid" width="160px" alt="Sucesso">');
                 $("#startVenom").html(response.state);
+                //
+            	$("#contatoVenon").html("----------");
+            	$("#waversaoVenon").html("----------");
+                $("#bateriaVenon").html("----------");
+                $("#sistemaVenon").html("----------");
+                $("#carregadorVenon").html("----------");
             }
         }
     }).fail(function (jqXHR, textStatus, msg) {
         $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
         $("#statusVenon").html("Parado");
         $("#startVenom").html("Desconectado");
+        //
+        $("#contatoVenon").html("----------");
+        $("#waversaoVenon").html("----------");
+        $("#bateriaVenon").html("----------");
+        $("#sistemaVenon").html("----------");
+        $("#carregadorVenon").html("----------");
     });
 }
 //

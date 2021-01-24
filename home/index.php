@@ -15,7 +15,7 @@ include_once(HEADER_TEMPLATE);
 ?>
 <div class="row d-flex justify-content-center">
 	<div class="col-sm-12">
-		<center><img class="img-fluid" src="../images/PgConstrucao.png" style="max-width: 450px;"></center>
+		<center><img class="img-fluid" src="../public/imagens/PgConstrucao.png"></center>
 	</div>
 </div>
 <?php include(FOOTER_TEMPLATE); ?>
