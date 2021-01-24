@@ -69,7 +69,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" id="navbar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-phone-alt"></i>&#32;Checar Numero
+            <i class="fas fa-phone-alt"></i>&#32;Checar Número
           </a>
           <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbar">
             <a class="dropdown-item" href="../pages/checkNumberStatus.php"><i class="fas fa-user"></i>&#32;Checar Simples Contato</a>
