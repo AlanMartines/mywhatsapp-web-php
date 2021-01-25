@@ -17,7 +17,7 @@ function cliStatus(){
             if (response.result == "error" && response.state == "NOTFOUND") {
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-logo-off.png" class="img-fluid" width="160px" alt="Erro">');
                 $("#startVenom").html("Desconectado");
-                $("#statusVenon").html("Parado");
+                $("#statusVenon").html("Rodando");
                 //
             	$("#contatoVenon").html("----------");
             	$("#waversaoVenon").html("----------");
