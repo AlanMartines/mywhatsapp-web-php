@@ -28,9 +28,9 @@ function cliStatus(dir_link){
                 $("#qrcodeVenon").html('<img src="../public/imagens/whatsapp-bot.png" class="img-fluid" width="160px" alt="Info">');
                 $("#statusVenon").html("Rodando");
                 $("#startVenom").html("Iniciando");
-                getHostDevice();
+                getHostDevice(dir_link);
             } else if (response.result == "warning" && response.state == "QRCODE") {
-                qrcodeVenon();
+                qrcodeVenon(dir_link);
                 $("#statusVenon").html("Rodando");
                 $("#startVenom").html("Ler QR-Code");
                 getHostDevice();
