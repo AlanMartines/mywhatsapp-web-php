@@ -1,11 +1,11 @@
 //
 String.prototype.capitalize = function() { return this.charAt(0).toUpperCase() + this.substr(1); }
 //
-function cliStatus(){
+function cliStatus(dir_link){
         var SessionName = $("#SessionName").val();
         $.ajax({
             type: 'POST',
-            url: 'http://localhost:9000/sistem/Status',
+            url: 'http://'+dir_link+':9000/sistem/Status',
             data: {
                 SessionName: SessionName
             },
@@ -81,11 +81,11 @@ function cliStatus(){
     //
 }
 //
-function startVenon() {
+function startVenon(dir_link) {
 	var SessionName = $("#SessionName").val();
     $.ajax({
         method: "POST",
-        url: 'http://localhost:9000/sistem/Start',
+        url: 'http://'+dir_link+':9000/sistem/Start',
         data: {
             SessionName: SessionName
         },
@@ -139,11 +139,11 @@ function startVenon() {
     });
 }
 //
-function closeVenon() {
+function closeVenon(dir_link) {
 	var SessionName = $("#SessionName").val();
     $.ajax({
         method: "POST",
-        url: 'http://localhost:9000/sistem/Close',
+        url: 'http://'+dir_link+':9000/sistem/Close',
         data: {
             SessionName: SessionName
         },
@@ -184,11 +184,11 @@ function closeVenon() {
     });
 }
 //
-function qrcodeVenon() {
+function qrcodeVenon(dir_link) {
 	var SessionName = $("#SessionName").val();
     $.ajax({
         method: "POST",
-        url: 'http://localhost:9000/sistem/QRCode',
+        url: 'http://'+dir_link+':9000/sistem/QRCode',
         data: {
             SessionName: SessionName,
             View: false
@@ -207,11 +207,11 @@ function qrcodeVenon() {
     });
 }
 //
-function getHostDevice() {
+function getHostDevice(dir_link) {
 	var SessionName = $("#SessionName").val();
     $.ajax({
         method: "POST",
-        url: 'http://localhost:9000/sistem/getHostDevice',
+        url: 'http://'+dir_link+':9000/sistem/getHostDevice',
         data: {
             SessionName: SessionName
         },
@@ -239,11 +239,11 @@ function getHostDevice() {
     });
 }
 //
-function RestartService() {
+function RestartService(dir_link) {
 	var SessionName = $("#SessionName").val();
     $.ajax({
         method: "POST",
-        url: 'http://localhost:9000/sistem/restartService',
+        url: 'http://'+dir_link+':9000/sistem/restartService',
         data: {
             SessionName: SessionName
         },
@@ -271,27 +271,29 @@ $(document).ready(function() {
     var ResponseURL = window.location.href;
     var domain = ResponseURL.split('/');
     var dir_local = domain[domain.length - 2];
+    const dir_link = domain[domain.length - 4];
     console.log('Local: '+dir_local);
+    console.log('Link: '+dir_link);
     //
     //---------------------------------------------------------------------------------------------------------------------------------------------------//
     //
     //
     setInterval(function() {
         if(dir_local == "pages"){
-            cliStatus();
+            cliStatus(dir_link);
         }
     }, 2000);
     //
     $("#starVenon").on("click", function() {
-        startVenon();
+        startVenon(dir_link);
     });
     //
     $("#restarVenon").on("click", function() {
-        RestartService();
+        RestartService(dir_link);
     });
     //
     $("#desconectarVenon").on("click", function() {
-        closeVenon();
+        closeVenon(dir_link);
     });
     //
 });
