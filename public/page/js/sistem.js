@@ -157,7 +157,7 @@ $('document').ready(function () {
             var data = $("#sendText-form").serialize();
             $.ajax({
                 type: 'POST',
-                url: 'http://'+dir_link+':9000/sistem/sendText',
+                url: 'http://localhost:9000/sistema/sendText',
                 data: data,
                 dataType: 'json',
                 beforeSend: function () {
@@ -342,7 +342,7 @@ $('document').ready(function () {
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
-                url: 'http://'+dir_link+':9000/sistem/sendImage',
+                url: 'http://localhost:9000/sistema/sendImage',
                 data: data,
                 processData: false, //prevent jQuery from automatically transforming the data into a query string
                 contentType: false,
@@ -522,7 +522,7 @@ $('document').ready(function () {
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
-                url: 'http://'+dir_link+':9000/sistem/sendTextMult',
+                url: 'http://localhost:9000/sistema/sendTextMult',
                 data: data,
                 processData: false, //prevent jQuery from automatically transforming the data into a query string
                 contentType: false,
@@ -701,7 +701,7 @@ $('document').ready(function () {
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
-                url: 'http://'+dir_link+':9000/sistem/sendImageMult',
+                url: 'http://localhost:9000/sistema/sendImageMult',
                 data: data,
                 processData: false, //prevent jQuery from automatically transforming the data into a query string
                 contentType: false,
@@ -865,7 +865,7 @@ $('document').ready(function () {
             var data = $("#sendTextGrupo-form").serialize();
             $.ajax({
                 type: 'POST',
-                url: 'http://'+dir_link+':9000/sistem/sendTextGrupo',
+                url: 'http://localhost:9000/sistema/sendTextGrupo',
                 data: data,
                 dataType: 'json',
                 beforeSend: function () {
@@ -1049,7 +1049,7 @@ $('document').ready(function () {
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
-                url: 'http://'+dir_link+':9000/sistem/sendImageGrupo',
+                url: 'http://localhost:9000/sistema/sendImageGrupo',
                 data: data,
                 processData: false, //prevent jQuery from automatically transforming the data into a query string
                 contentType: false,
@@ -1217,7 +1217,7 @@ $('document').ready(function () {
             var data = $("#checkNumberStatus-form").serialize();
             $.ajax({
                 type: 'POST',
-                url: 'http://'+dir_link+':9000/sistem/checkNumberStatus',
+                url: 'http://localhost:9000/sistema/checkNumberStatus',
                 data: data,
                 dataType: 'json',
                 beforeSend: function () {
@@ -1387,7 +1387,7 @@ $('document').ready(function () {
             $.ajax({
                 type: "POST",
                 enctype: 'multipart/form-data',
-                url: 'http://'+dir_link+':9000/sistem/checkNumberStatusMult',
+                url: 'http://localhost:9000/sistema/checkNumberStatusMult',
                 data: data,
                 processData: false, //prevent jQuery from automatically transforming the data into a query string
                 contentType: false,
@@ -1569,7 +1569,7 @@ $('document').ready(function () {
         var SessionName = $("#SessionName").val();
         $.ajax({
             type: "POST",
-            url: 'http://'+dir_link+':9000/sistem/getAllGroups/',
+            url: 'http://localhost:9000/sistema/getAllGroups/',
             data: { "SessionName": SessionName },        
             //dataType: 'json',
             beforeSend: function () {
@@ -1595,7 +1595,7 @@ $('document').ready(function () {
         var SessionName = $("#SessionName").val();
         $.ajax({
             type: "POST",
-            url: 'http://'+dir_link+':9000/sistem/getAllGroups/',
+            url: 'http://localhost:9000/sistema/getAllGroups/',
             data: { "SessionName": SessionName },      
             //dataType: 'json',
             beforeSend: function () {
@@ -1618,7 +1618,7 @@ $('document').ready(function () {
     event.preventDefault();
     $.ajax({
         type: "POST",
-        url: 'http://'+dir_link+':9000/sistem/getBlockList',
+        url: 'http://localhost:9000/sistema/getBlockList',
         data: { "SessionName": SessionName },
         beforeSend: function () {
             $("#getBlockList").html('<i class="fas fa-spinner fa-spin"></i> Carregando...');
@@ -1736,7 +1736,7 @@ $('document').ready(function () {
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: 'http://'+dir_link+':9000/sistem/getAllContacts',
+            url: 'http://localhost:9000/sistema/getAllContacts',
             data: { "SessionName": SessionName },
             beforeSend: function () {
                 $("#getAllContacts").html('<i class="fas fa-spinner fa-spin"></i> Carregando...');
@@ -1862,7 +1862,7 @@ $('document').ready(function () {
         event.preventDefault();
         $.ajax({
             type: "POST",
-            url: 'http://'+dir_link+':9000/sistem/getAllGroups',
+            url: 'http://localhost:9000/sistema/getAllGroups',
             data: { "SessionName": SessionName },
             beforeSend: function () {
                 $("#getAllGroups").html('<i class="fas fa-spinner fa-spin"></i> Carregando...');
